@@ -1,0 +1,39 @@
+<div align="center">
+<form class="example-form" (ngSubmit)="update()">
+  <mat-form-field class="example-full-width">
+    <mat-label>Username</mat-label>
+    <input matInput placeholder="username" name=username [(ngModel)] ="username" >
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Password</mat-label>
+    <input matInput  type='password' placeholder="password" name="password" [(ngModel)]="password" >
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Name</mat-label>
+    <input matInput  type='name' placeholder="password" name="name" [(ngModel)]="name" >
+  </mat-form-field>
+
+  
+  <mat-form-field appearance="fill">
+  <mat-label>Data de nascimento</mat-label>
+  <input matInput [matDatepicker]="picker" name="dtBorn" [(ngModel)]="dtBorn">
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
+
+<div *ngIf=userAdmin>
+  <mat-form-field appearance="fill">
+    <mat-label>Perfil</mat-label>
+    <mat-select>
+      <mat-option *ngFor="let perfil of perfis" [value]="perfil.id">
+        {{perfil.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+  
+  <button mat-raised-button color="primary">Update</button>
+</form>
+</div>
